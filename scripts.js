@@ -281,6 +281,11 @@ document.addEventListener('DOMContentLoaded', () => {
         audio.src = songs[index];
         songTitle.textContent = songs[index].split('/').pop();
         audio.load();
+        audio.onloadedmetadata = () => {
+            durationElement.textContent = formatTime(audio.duration);
+            currentTimeElement.textContent = '0:00'; // Reset current time display
+            progressBar.value = 0; // Reset progress bar
+        };
     }
 
     function playSong() {
@@ -297,7 +302,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const progressPercent = (audio.currentTime / audio.duration) * 100;
         progressBar.value = progressPercent;
         currentTimeElement.textContent = formatTime(audio.currentTime);
-        durationElement.textContent = formatTime(audio.duration);
     }
 
     function formatTime(seconds) {
@@ -329,6 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
     progressBar.addEventListener('input', () => {
         const seekTime = (progressBar.value / 100) * audio.duration;
         audio.currentTime = seekTime;
+        currentTimeElement.textContent = formatTime(seekTime); // Update current time display
     });
 
     audio.addEventListener('timeupdate', updateProgress);
