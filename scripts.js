@@ -260,9 +260,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Music player functionality
     const songs = [
-        'Songs/song1.mp3',
+        'Songs/Kingdom in Blue.mp3',
         'Songs/song2.mp3',
-        'Songs/song3.mp3'
+        'Songs/song3.mp3',
+        'Songs/song4.mp3',
+        'Songs/song5.mp3'
         // Add more songs as needed
     ];
     let currentSongIndex = 0;
