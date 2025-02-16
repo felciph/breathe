@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breathe</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <div class="sidebar">
+        <a onclick="showContent('home')">🏠 Home</a>
+        <a onclick="showContent('survey')">📊 Survey</a>
+        <a onclick="showContent('settings')">⚙️ Settings</a>
+        <a onclick="showContent('todo')">📝 To Do List</a>
+        <a onclick="showContent('sound-library')">🎶 Sound Library</a>
+        <a onclick="showContent('meditation')">🧘 Meditation</a>
+        <a onclick="showContent('aeolus-ai')">🤖 Aeolus AI</a>
+        <div class="sidebar-bottom">
+            <button onclick="showContent('shop')">🛒</button>
+            <button onclick="showContent('character')">Character</button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="money-counter">Coins: <span id="money-amount">0</span></div>
+        <div id="home">
+            <h1>Welcome to Breathe</h1>
+            <p>Your journey to mindfulness and relaxation begins here.</p>
+        </div>
+        <div id="survey" style="display: none;">
+            <h1>Survey</h1>
+            <p>Take a moment to complete our survey and help us improve.</p>
+        </div>
+        <div id="settings" style="display: none;">
+            <h1>Settings</h1>
+            <p>Adjust your preferences and settings here.</p>
+            <div class="setting-item">
+                <label for="dark-mode-toggle">Dark Mode</label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="dark-mode-toggle" onclick="toggleDarkMode()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="setting-item">
+                <label for="confetti-toggle">To-Do List Confetti</label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="confetti-toggle" checked onclick="toggleConfetti()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        <div id="todo" style="display: none;">
+            <h1>To Do List</h1>
+            <div class="todo-container">
+                <div style="display: flex; align-items: center;">
+                    <input type="text" id="todo-input" class="todo-input" placeholder="Add a new task" style="flex: 1;">
+                    <div style="display: flex; align-items: center;">
+                        <button id="priority-normal" class="priority-button priority-normal selected" onclick="selectPriority('normal')">Normal</button>
+                        <button id="priority-important" class="priority-button priority-important" onclick="selectPriority('important')">Important</button>
+                        <button id="priority-urgent" class="priority-button priority-urgent" onclick="selectPriority('urgent')">Urgent</button>
+                    </div>
+                    <button class="add-button" onclick="addTodo()">Add</button>
+                </div>
+                <ul id="todo-list" class="todo-list"></ul>
+            </div>
+        </div>
+        <div id="sound-library" style="display: none;">
+            <h1>Sound Library</h1>
+            <p>Explore our collection of soothing sounds and music.</p>
+            <div class="music-player">
+                <div class="song-info">
+                    <span id="song-title">No song playing</span>
+                </div>
+                <div class="controls">
+                    <button id="prev-button">⏮️</button>
+                    <button id="play-button">▶️</button>
+                    <button id="next-button">⏭️</button>
+                </div>
+                <div class="progress-container">
+                    <input type="range" id="progress-bar" value="0">
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+        </div>
+        <div id="meditation" style="display: none;">
+            <h1>Meditation</h1>
+            <p>Find guided meditations to help you relax and focus.</p>
+            <button class="meditate-button" onclick="startMeditation()">Meditate</button>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="meditation-button" onclick="setMeditationTime(1)">1 min</button>
+                <button class="meditation-button" onclick="setMeditationTime(2)">2 min</button>
+                <button class="meditation-button" onclick="setMeditationTime(3)">3 min</button>
+                <button class="meditation-button" onclick="setMeditationTime(5)">5 min</button>
+            </div>
+        </div>
+        <div id="aeolus-ai" style="display: none;">
+            <h1>Aeolus AI</h1>
+            <div class="chat-container">
+                <div id="chat-box" class="chat-box">
+                    <div class="chat-message ai-message">Aeolus: Hey! I am your own personal AI stress relief bot. How can I help you?</div>
+                </div>
+                <div class="chat-input-container">
+                    <input type="text" id="chat-input" class="chat-input" placeholder="Type your message...">
+                    <button class="send-button" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="dark-overlay" class="dark-overlay">
+        <div id="breathe-text" class="breathe-text">Breathe in</div>
+        <div class="circle">
+            <div id="countdown"></div>
+        </div>
+    </div>
+</body>
+</html>
