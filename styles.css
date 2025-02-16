@@ -467,7 +467,7 @@ input:checked + .slider:before {
 }
 
 .sidebar-bottom button {
-    padding: 10px;
+    padding: 5px; /* Reduce padding */
     border: none;
     color: white;
     background-color: #c1d1b8;
@@ -479,6 +479,7 @@ input:checked + .slider:before {
     white-space: nowrap; /* Prevent text from wrapping */
     overflow: hidden; /* Hide overflow text */
     text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    font-size: 18px; /* Make the buttons smaller */
 }
 
 .sidebar-bottom button:hover {
@@ -486,12 +487,13 @@ input:checked + .slider:before {
 }
 
 .sidebar-bottom button:first-child {
-    font-size: 24px; /* Make the shop emoji bigger */
+    font-size: 20px; /* Adjust the shop emoji size */
     border: 2px solid white; /* Add a white outline */
 }
 
-.character-button {
-    font-size: 14px; /* Adjust font size to fit */
+.sidebar-bottom button.character-button {
+    font-size: 13px; /* Adjust font size to fit */
+    border: 2px solid white; /* Add a white outline */
 }
 
 /* Shop Item Styles */
