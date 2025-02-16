@@ -226,6 +226,7 @@ body {
     border-radius: 10px;
     margin-left: auto;
     max-width: 80%;
+    width: auto; /* Allow width to adjust based on content */
 }
 .ai-message {
     text-align: left;
@@ -244,12 +245,16 @@ body {
 .chat-input-container {
     display: flex;
     margin-top: 10px;
+    justify-content: flex-end; /* Align to the right */
 }
 .chat-input {
     flex: 1;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 10px;
+    max-width: 80%; /* Ensure it doesn't exceed the container */
+    width: 10px; /* Start very short */
+    transition: width 0.2s; /* Smooth transition */
 }
 .send-button {
     padding: 10px;
@@ -460,6 +465,7 @@ input:checked + .slider:before {
     justify-content: space-between;
     padding: 0 10px;
 }
+
 .sidebar-bottom button {
     padding: 10px;
     border: none;
@@ -468,11 +474,55 @@ input:checked + .slider:before {
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
+    flex: 1; /* Ensure buttons fit within the container */
+    margin: 0 5px; /* Add some spacing between buttons */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
 }
+
 .sidebar-bottom button:hover {
     background-color: #3a006b;
 }
+
 .sidebar-bottom button:first-child {
     font-size: 24px; /* Make the shop emoji bigger */
     border: 2px solid white; /* Add a white outline */
+}
+
+.character-button {
+    font-size: 14px; /* Adjust font size to fit */
+}
+
+/* Shop Item Styles */
+.shop-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.shop-item {
+    width: 200px;
+    text-align: center;
+}
+
+.item-frame {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.item-frame:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
