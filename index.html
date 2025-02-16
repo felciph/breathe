@@ -18,7 +18,7 @@
         <a onclick="showContent('meditation')">🧘 Meditation</a>
         <a onclick="showContent('aeolus-ai')">🤖 Aeolus AI</a>
         <div class="sidebar-bottom">
-            <button onclick="showContent('shop')">🛒</button>
+            <button onclick="showContent('shop-categories')">🛒</button>
             <button onclick="showContent('character')" class="character-button">Character</button>
         </div>
     </div>
@@ -73,13 +73,13 @@
                     <span id="song-title">No song playing</span>
                 </div>
                 <div class="controls">
-                    <button id="prev-button">⏮️</button>
-                    <button id="play-button">▶️</button>
-                    <button id="next-button">⏭️</button>
+                    <button id="prev-button" class="control-button">⏮️</button>
+                    <button id="play-button" class="control-button">▶️</button>
+                    <button id="next-button" class="control-button">⏭️</button>
                 </div>
                 <div class="progress-container">
-                    <input type="range" id="progress-bar" value="0">
-                    <span id="duration">0:00</span>
+                    <input type="range" id="progress-bar" value="0" class="progress-bar">
+                    <span id="current-time" class="time">0:00</span> / <span id="duration" class="time">0:00</span>
                 </div>
             </div>
         </div>
@@ -106,90 +106,60 @@
                 </div>
             </div>
         </div>
-        <div id="shop" style="display: none;">
-            <h1>Virtual Store</h1>
-            <p>Welcome to the virtual store! Here you can buy items to enhance your experience.</p>
+        <div id="shop-categories" style="display: none;">
+            <h1>Shop Categories</h1>
+            <p>Select a category to explore our items.</p>
+            <div class="shop-categories">
+                <button onclick="showContent('shop-food')" style="background-color: #9caf88;">Food</button>
+                <button onclick="showContent('shop-accessories')" style="background-color: #9caf88;">Accessories</button>
+            </div>
+        </div>
+        <div id="shop-food" style="display: none;">
+            <h1>Food</h1>
+            <p>Explore our collection of food items.</p>
+            <button class="back-button" onclick="showContent('shop-categories')">Go back</button>
             <div class="shop-items">
                 <div class="shop-item">
                     <div class="item-frame">
-                        <img src="path/to/image1.jpg" alt="Item 1 Image" class="item-image">
-                        <h2>Item 1</h2>
-                        <p>Description of item 1.</p>
-                        <button onclick="buyItem('Item 1')">Buy</button>
+                        <img src="path/to/food1.jpg" alt="Food 1 Image" class="item-image">
+                        <h2>Food 1</h2>
+                        <p>Description of food 1.</p>
+                        <button onclick="buyItem('Food 1')">Buy</button>
                     </div>
                 </div>
                 <div class="shop-item">
                     <div class="item-frame">
-                        <img src="path/to/image2.jpg" alt="Item 2 Image" class="item-image">
-                        <h2>Item 2</h2>
-                        <p>Description of item 2.</p>
-                        <button onclick="buyItem('Item 2')">Buy</button>
+                        <img src="path/to/food2.jpg" alt="Food 2 Image" class="item-image">
+                        <h2>Food 2</h2>
+                        <p>Description of food 2.</p>
+                        <button onclick="buyItem('Food 2')">Buy</button>
+                    </div>
+                </div>
+                <!-- Add more food items as needed -->
+            </div>
+        </div>
+        <div id="shop-accessories" style="display: none;">
+            <h1>Accessories</h1>
+            <p>Explore our collection of accessories.</p>
+            <button class="back-button" onclick="showContent('shop-categories')">Go back</button>
+            <div class="shop-items">
+                <div class="shop-item">
+                    <div class="item-frame">
+                        <img src="path/to/accessory1.jpg" alt="Accessory 1 Image" class="item-image">
+                        <h2>Accessory 1</h2>
+                        <p>Description of accessory 1.</p>
+                        <button onclick="buyItem('Accessory 1')">Buy</button>
                     </div>
                 </div>
                 <div class="shop-item">
                     <div class="item-frame">
-                        <img src="path/to/image3.jpg" alt="Item 3 Image" class="item-image">
-                        <h2>Item 3</h2>
-                        <p>Description of item 3.</p>
-                        <button onclick="buyItem('Item 3')">Buy</button>
+                        <img src="path/to/accessory2.jpg" alt="Accessory 2 Image" class="item-image">
+                        <h2>Accessory 2</h2>
+                        <p>Description of accessory 2.</p>
+                        <button onclick="buyItem('Accessory 2')">Buy</button>
                     </div>
                 </div>
-                <div class="shop-item">
-                    <div class="item-frame">
-                        <img src="path/to/image4.jpg" alt="Item 4 Image" class="item-image">
-                        <h2>Item 4</h2>
-                        <p>Description of item 4.</p>
-                        <button onclick="buyItem('Item 4')">Buy</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <div class="item-frame">
-                        <img src="path/to/image5.jpg" alt="Item 5 Image" class="item-image">
-                        <h2>Item 5</h2>
-                        <p>Description of item 5.</p>
-                        <button onclick="buyItem('Item 5')">Buy</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <div class="item-frame">
-                        <img src="path/to/image6.jpg" alt="Item 6 Image" class="item-image">
-                        <h2>Item 6</h2>
-                        <p>Description of item 6.</p>
-                        <button onclick="buyItem('Item 6')">Buy</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <div class="item-frame">
-                        <img src="path/to/image7.jpg" alt="Item 7 Image" class="item-image">
-                        <h2>Item 7</h2>
-                        <p>Description of item 7.</p>
-                        <button onclick="buyItem('Item 7')">Buy</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <div class="item-frame">
-                        <img src="path/to/image8.jpg" alt="Item 8 Image" class="item-image">
-                        <h2>Item 8</h2>
-                        <p>Description of item 8.</p>
-                        <button onclick="buyItem('Item 8')">Buy</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <div class="item-frame">
-                        <img src="path/to/image9.jpg" alt="Item 9 Image" class="item-image">
-                        <h2>Item 9</h2>
-                        <p>Description of item 9.</p>
-                        <button onclick="buyItem('Item 9')">Buy</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <div class="item-frame">
-                        <img src="path/to/image10.jpg" alt="Item 10 Image" class="item-image">
-                        <h2>Item 10</h2>
-                        <p>Description of item 10.</p>
-                        <button onclick="buyItem('Item 10')">Buy</button>
-                    </div>
-                </div>
+                <!-- Add more accessories as needed -->
             </div>
         </div>
     </div>
