@@ -144,6 +144,11 @@ function startFlaskServer() {
         });
 }
 
+function adjustInputWidth(input) {
+    input.style.width = '10px'; // Start very short
+    input.style.width = (input.scrollWidth + 2) + 'px';
+}
+
 function sendMessage() {
     startFlaskServer(); // Ensure Flask server is running
     const chatInput = document.getElementById('chat-input');
@@ -160,6 +165,7 @@ function sendMessage() {
     chatInput.value = '';
     chatInput.disabled = true;
     sendButton.disabled = true;
+    adjustInputWidth(chatInput); // Reset input width
 
     fetch('http://127.0.0.1:5000/chat', {
         method: 'POST',
@@ -232,6 +238,11 @@ function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+function buyItem(itemName) {
+    alert(`You have bought ${itemName}!`);
+    // Implement further logic for buying items, such as deducting coins, updating inventory, etc.
 }
 
 document.addEventListener('DOMContentLoaded', () => {
